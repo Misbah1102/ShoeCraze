@@ -1,0 +1,51 @@
+<!-- <p>cart-page works!</p> -->
+<app-notfound [visible]="!cart || cart.items.length <=0" notfoungmsg="Items Not Found"
+    resetLinkText="Go To Home!"></app-notfound>
+<div *ngIf="cart && cart.items.length > 0" class="container">
+    <ul>
+        <li *ngFor="let cartItem of cart.items">
+            <div>
+                <img [src]="cartItem.shoe.imageurl" alt="cartItem.shoe.name">
+
+            </div>
+            <div>
+                <a routerLink="/shoe/{{cartItem.shoe.id}}">
+                    {{cartItem.shoe.name}}
+                </a>
+
+            </div>
+            <div>
+                <select>
+                    <option> Select Size</option>
+                    <option>36</option>
+                    <option>37</option>
+                    <option>38</option>
+                    <option>39</option>
+                    <option>40</option>
+                    <option>41</option>
+                    <option>42</option>
+
+
+                </select>
+            </div>
+            <div>
+                {{cartItem.price | currency }}
+            </div>
+            <div>
+                <button class="remove" (click)="removeFromCart(cartItem)">
+                    Remove
+                </button>
+            </div>
+
+        </li>
+    </ul>
+    <div class="checkout">
+        <div class="foodcount">
+            {{cart.items.length}}
+        </div>
+        <div class="totalprice">
+            {{cart.totalPrice | currency}}
+        </div>
+        <a (click)="payNow()">Pay Now</a>
+    </div>
+</div>

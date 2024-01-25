@@ -1,0 +1,53 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+a {
+    color: aqua;
+    cursor: pointer;
+
+}
+
+a:hover {
+    background-color: gray;
+    color: white;
+}
+
+.navbar {
+    margin: 0 auto;
+    display: flex;
+    background: black !important;
+    justify-content: space-between;
+}
+
+a.logo {
+    font-weight: bold;
+    padding: 1em;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+ul li a {
+
+    display: inline;
+}
+
+ul li button {
+
+    cursor: pointer;
+    padding-left: .5rem;
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    background-color: black;
+    color: aliceblue;
+}
+
+button:hover {
+    background: whitesmoke;
+    color: black;
+}

@@ -1,0 +1,115 @@
+.conatiner{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: 1.5rem;
+
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    flex: 3 2;
+    border: 1px solid #0ef;
+    margin: .5rem;
+    padding: 0;
+    list-style-type: none;
+    justify-content: space-evenly;
+}
+ul li{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid black;
+}
+ul li:last-child{
+    border: none;
+}
+ul li img{
+    height: 5rem;
+    width: 5rem;
+    border-radius: 100rem;
+    object-fit: cover;
+
+}
+ul li div{
+    padding: 1rem;
+
+}
+ul li div:not(:first-child){
+    flex-basis: 18%;
+}
+ul li select{
+    width: 6rem;
+    border: none;
+    /* outline: none; */
+    cursor: pointer;
+    border-bottom: 1px solid lightskyblue;
+    font-weight: 100;
+}
+ul .remove {
+    border-radius: 1rem;
+    border: none;
+    outline: none;
+    padding: .5rem;
+    opacity: .7;
+    color: black;
+}
+ul.remove:hover
+{
+    cursor: pointer;
+    opacity: 1;
+}
+.checkout{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    flex: 2 0;
+    height: 6rem;
+    
+    border: 1px solid #0ef;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: .5rem;
+    float: right;
+}
+.checkout>div{
+    display: flex;
+    flex: 0;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    margin: 1rem;
+    font-size: 1rem;
+    /* float: right; */
+    
+
+}
+.foodcount{
+    margin-bottom: 1.5rem;
+
+}
+.checkout .foodcount::before{
+    content: "Total Product: ";
+    color: gray;
+}
+.checkout .totalprice::before{
+    content: "Total Price: ";
+    color: gray;
+}
+.checkout a {
+    padding: .9rem;
+    color: aqua;
+    background-color: black;
+    display: block;
+    width: 90%;
+    border-radius: .5rem;
+    text-align: center;
+    opacity: .7;
+    justify-content: center;
+}
+.checkout a:hover{
+    opacity: 1;
+    cursor: pointer;
+}

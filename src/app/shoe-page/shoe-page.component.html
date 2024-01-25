@@ -1,0 +1,24 @@
+<!-- <p>shoe-page works!</p> -->
+<app-notfound [visible]="!shoe" notfoungmsg="Shoe Not Found! " resetLinkText="Go To Home!"></app-notfound>
+<div  *ngIf="shoe" class="container">
+    <img [src]="shoe.imageurl" [alt]="shoe.name">
+
+    <div class="details">
+        <div class="header">
+            <span class="name">
+                {{shoe.name}}
+            </span>
+            <span class="favorite {{shoe.favorite?'' :'not' }}">
+                ♥
+            </span>
+        </div>
+
+        <div class="price">
+            <span>
+                {{shoe.price | currency }}
+            </span>
+        </div>
+        <button (click)="addToCart()">Add To Cart</button>
+
+    </div>
+</div>

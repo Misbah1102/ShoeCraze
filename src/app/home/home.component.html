@@ -1,0 +1,22 @@
+<app-notfound [visible]="!shoes || shoes.length <=0"></app-notfound>
+
+<ul>
+    <li *ngFor="let shoe of shoes">
+        <a routerLink="/shoe/{{shoe.id}}">
+            <img src="{{shoe.imageurl}}" alt="shoe image">
+            <div class="content">
+                <div class="name">
+                    {{shoe.name}}
+                </div>
+                <span class="favorite {{shoe.favorite?'':'not'}}">
+                ♥
+            </span>
+                <div class="price">
+                    {{shoe.price|currency}}
+                </div>
+
+
+            </div>
+        </a>
+    </li>
+</ul>
