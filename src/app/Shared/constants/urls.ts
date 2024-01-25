@@ -1,4 +1,4 @@
-const Base_Url = 'http://localhost:3000';
+const Base_Url = 'http://shoe-craze-backend.vercel.app';
 
 export const Shoes_Url = Base_Url + '/api/shoes';
 export const Shoes_Url_Tags = Shoes_Url + '/tags';
