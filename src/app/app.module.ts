@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
-
-import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { ShoePageComponent } from './shoe-page/shoe-page.component';
@@ -19,6 +15,11 @@ import { ContactComponent } from './contact/contact.component';
 import { TagsComponent } from './tags/tags.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
+import { PaymentComponent } from './payment/payment.component'
 
 
 
@@ -39,17 +40,23 @@ import { SignupComponent } from './signup/signup.component';
     TagsComponent,
     LoginComponent,
     SignupComponent,
+    CheckoutPageComponent,
+    PaymentComponent,
     // SidebarComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
-    // MatSidenavModule,
-    // MatListModule,
-    // MatIconModule,
-    MatButtonModule,
-    MatToolbarModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut:3000,
+      positionClass:'toast-top-left',
+      newestOnTop:false
+    })
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

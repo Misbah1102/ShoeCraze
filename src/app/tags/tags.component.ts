@@ -14,6 +14,8 @@ export class TagsComponent  implements OnInit{
    constructor(private ss : ShoeserviceService){}
    
    ngOnInit(): void {
-     this.tags=this.ss.getAlltag();
+    this.ss.getAlltag().subscribe((servershoe)=>{
+      this.tags=servershoe;
+    })
    }
 }

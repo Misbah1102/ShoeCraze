@@ -98,7 +98,7 @@ ul.remove:hover
     content: "Total Price: ";
     color: gray;
 }
-.checkout a {
+.checkout button {
     padding: .9rem;
     color: aqua;
     background-color: black;
@@ -109,7 +109,7 @@ ul.remove:hover
     opacity: .7;
     justify-content: center;
 }
-.checkout a:hover{
+.checkout button:hover{
     opacity: 1;
     cursor: pointer;
 }

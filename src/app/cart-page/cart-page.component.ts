@@ -3,6 +3,8 @@ import { CartService } from '../Service/cart.service';
 import { Cart } from '../Shared/Model/cart';
 import { CartItem } from '../Shared/Model/cartitem';
 import { bindCallback } from 'rxjs';
+import { PaymentComponent } from '../payment/payment.component';
+import { PaymentService } from '../Service/payment.service';
 // import { ShoeserviceService } from '../Service/ShoeS/shoeservice.service';
 
 
@@ -17,7 +19,9 @@ import { bindCallback } from 'rxjs';
 export class CartPageComponent {
 
 cart!:Cart;
-constructor(private cartService:CartService, )
+  // orderlist:any[]=[];
+  isPaymentDone:boolean=false;
+constructor(private cartService:CartService , private Payment: PaymentService)
 {
  
   this.setCart();
@@ -39,40 +43,102 @@ changeQuantity(cartItem:CartItem, quantityInString:string){
   this.setCart();
 }
 
+
+
 payNow(){
-  const RazorpayOptions={
-    description:"Sample",
+
+  
+   const RazorpayOptions ={
+    description:'Sample Razorpay demo',
     currency:'USD',
+    amount:`${this.cart.totalPrice * 100}` ,
     name:'ShoeCraZe',
-    amount:`${this.cart.totalPrice*100}`,
     key:'rzp_test_zvs79zxPSosBp3',
-    theme:{
-      color:'black'
+    
+    handler:(_response: any)=>{
+      console.log("payment successfull", _response)
+       
     },
-    modals:{
+    prefills:{
+      name:'Misbah Memon',
+      email:'mishu@gmail.com',
+      phone:'9359551454',
+
+    },
+    theme:{
+      color:'#000000',
+    },
+    modal:{
       ondismiss:()=>{
-        console.log('dismissed');
+        console.log('dismissed')
+
       }
     }
-
-  }
-
-  const succesCallback= (paymentId:any)=>{
-    console.log(paymentId);
-    alert("payment Successfull!")
-  }
-  const failureCallback=(e:any)=>{
-    console.log(e);
-  }
-  const deLete=(cartItem:CartItem)=>{
-    this.cartService.removeFromCart;
-  }
-
-  Razorpay.open(RazorpayOptions, succesCallback);
+   }
 
 
-
+   const razr = new Razorpay(RazorpayOptions);
+   razr.open();
  
+  (   error: any)=>{
+    console.error("payment failed ", error);
+
+  }
+   
+
 }
 
+// paywithRazorpay(Shoes:any[]){
+
+//   const total = Shoes.reduce((sum, shoe)=> sum+ shoe.price, 0);
+
+//   const orderDetail ={
+//     amount : total,
+//     currency:"USD",
+//     items:Shoes.map(shoe=>({
+//       id:shoe.id, 
+//       quantity:shoe.quantity
+//     }))
+//   };
+
+//   this.Payment.createOrder(orderDetail).subscribe(order=>{
+//     const RazorpayOptions ={
+//       description:'Sample Razorpay demo',
+//       currency:'USD',
+//       amount:`${this.cart.totalPrice * 100}` ,
+//       name:'ShoeCraZe',
+//       key:'rzp_test_zvs79zxPSosBp3',
+      
+     
+
+//       prefills:{
+//         name:'Misbah Memon',
+//         email:'mishu@gmail.com',
+//         phone:'9359551454',
+  
+//       },
+//       theme:{
+//         color:'#000000',
+//       },
+//       modal:{
+//         ondismiss:()=>{
+//           console.log('dismissed')
+  
+//         }
+//       }
+//      }
+  
+  
+   
+  
+//   },
+ 
+// }
+
+
+// payNow(){
+
+//   this.Payment['paywithRazorpay'](this.cart.items);
+//   this.isPaymentDone=true;
+// }
 }

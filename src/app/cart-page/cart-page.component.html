@@ -46,6 +46,6 @@
         <div class="totalprice">
             {{cart.totalPrice | currency}}
         </div>
-        <a (click)="payNow()">Pay Now</a>
+        <button (click)="payNow()" [disabled]="isPaymentDone">Pay Now!</button>
     </div>
 </div>

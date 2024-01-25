@@ -9,14 +9,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 700px;
+    /* min-height: 100vh; */
     background: #fff;
 }
 
 .wrapper {
     position: relative;
     width: 750px;
-    height: 450px;
+    height: 550px;
     margin-bottom: 50px;
     background: transparent;
     background-color: #081b29;
@@ -117,10 +118,11 @@
 .btn {
     position: relative;
     width: 90%;
-    height: 45px;
+    height: 55px;
     background: transparent;
     border: 2px solid #0ef;
     outline: none;
+    top: 15px;
     border-radius: 40px;
     cursor: pointer;
     font-size: 16px;
@@ -159,7 +161,8 @@
 
 .logreg-link p {
     color: #fff;
-    margin-left: 45px;
+    margin-left: 50px;
+    margin-top: 5px;
 
 }
 
@@ -407,6 +410,11 @@
     padding: 0px 20px 80px 170px;
     /* display: none; */
 
+}
+.error-list{
+    color: red;
+    font-size: smaller;
+    position: absolute;
 }
 .wrapper .info-text.register{
     left: 0;

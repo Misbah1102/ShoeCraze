@@ -12,6 +12,9 @@
     min-height: 100vh;
     background: #fff;
 }
+.error-list{
+    color: red;
+}
 
 .wrapper {
     position: relative;

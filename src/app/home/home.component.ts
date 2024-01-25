@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShoeserviceService } from '../Service/ShoeS/shoeservice.service';
 import { Shoes } from '../Shared/Model/Shoe';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 @Component({ 
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,20 +10,26 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   shoes: Shoes[] = [];
-  constructor(private ss: ShoeserviceService, private router: ActivatedRoute) {}
-
-  ngOnInit(): void {
+  constructor(private ss: ShoeserviceService, private router: ActivatedRoute) {
+    let ObservableShoe:Observable<Shoes[]>;
     this.router.params.subscribe((params) => {
       if (params['searchItem'])
-        this.shoes = this.ss
-          .getAll()
-          .filter((shoe) =>
-            shoe.name.toLowerCase().includes(params['searchItem'].toLowerCase())
-          );
+        ObservableShoe= this.ss.getAllshoesBySearch(params['searchItem']);
           else if(params['tag'])
-          this.shoes=this.ss.getAllshoesByTag(params['tag']);
-      else this.shoes = this.ss.getAll();
+          ObservableShoe=this.ss.getAllshoesByTag(params['tag']);
+      else ObservableShoe = this.ss.getAll();
+
+      ObservableShoe.subscribe((servershoe)=>{
+        this.shoes=servershoe;
+      })
     });
+
+
+
+  }
+
+  ngOnInit(): void {
+    
   }
   
   

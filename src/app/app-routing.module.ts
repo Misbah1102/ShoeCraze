@@ -7,6 +7,7 @@ import { AboutUSComponent } from './about-us/about-us.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { CheckoutPageComponent } from './checkout-page/checkout-page.component';
 
 const routes: Routes = [
 
@@ -20,7 +21,8 @@ const routes: Routes = [
 {path:'contact', component:ContactComponent},
 {path:'tag/:tag', component:HomeComponent},
 {path:'login', component:LoginComponent},
-{path:'signup', component:SignupComponent}
+{path:'signup', component:SignupComponent},
+{path:'checkout', component:CheckoutPageComponent}
 
 ];
 

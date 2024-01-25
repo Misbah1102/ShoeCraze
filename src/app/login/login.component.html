@@ -7,10 +7,10 @@
 
         <div class="form-box login">
             <h2>Login</h2>
-            <form action="">
+            <form [formGroup]="loginForm" (ngSubmit)="submit()">
                 <div class="input-box">
-                    <input type="text" required>
-                    <label>Username</label>
+                    <input type="email" name="email" formControlName="email" required>
+                    <label>Email</label>
                     <i class="bi bi-person-circle">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -20,8 +20,19 @@
                         </svg>
                     </i>
                 </div>
+                <div class="error-list" *ngIf="formControl['email'].errors && isSubmitted">
+                    <div *ngIf="formControl['email'].errors['required']">
+                        Should Not Be Empty
+
+                    </div>
+                    <div *ngIf="formControl['email'].errors['email']">
+                        Email Not Correct
+                    </div>
+                    
+                </div>
+
                 <div class="input-box">
-                    <input type="password" required>
+                    <input type="password" name="password" formControlName="password">
                     <label>Password</label>
                     <i class="bi bi-lock-fill">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -31,6 +42,12 @@
                         </svg>
                     </i>
                 </div>
+               <div class="error-list" *ngIf="formControl['password'].errors && isSubmitted">
+                <div *ngIf="formControl['password'].errors['required']">
+                    Should not be empty
+                </div>
+               
+               </div>
                 <button class="btn" type="submit">Login</button>
                 <div class="logreg-link">
                     <p>
@@ -44,5 +61,5 @@
             <h2>WELCOME!!</h2>
             <p>To The Ultimate ShoeCraZe! Shop Yourself The Best You Want!</p>
         </div>
-         </div>
+    </div>
 </div>

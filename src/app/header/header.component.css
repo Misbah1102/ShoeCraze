@@ -28,11 +28,32 @@ a.logo {
 ul {
     list-style-type: none;
     margin: 0;
+    display: flex;
 }
 
 ul li a {
+    padding: 1rem;
+    display: inline-block;
+}
+.menu-container{
+    position: relative;
+}
+.menu{
+    position: absolute;
+    z-index: 1;
+    background: black;
+    color: whitesmoke;
+    display: none;
 
-    display: inline;
+}
+.menu-container:hover  .menu{
+    display: block;
+    
+}
+.menu a{
+    width: 100%;
+    min-width: 8rem;
+    
 }
 
 ul li button {

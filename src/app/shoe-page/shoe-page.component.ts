@@ -15,7 +15,9 @@ export class ShoePageComponent {
   private shoeservice:ShoeserviceService , private cartService:CartService, private router:Router){
   activatedRoute.params.subscribe((params)=>{
     if(params['id'])
-    this.shoe=shoeservice.getShoeById(params['id'])
+  shoeservice.getShoeById(params['id']).subscribe(servershoe=>{
+    this.shoe=servershoe
+  })
   })
  }
 

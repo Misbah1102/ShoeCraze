@@ -35,12 +35,25 @@
          
         </div>
         <ul>
-          <li>
-            
+          
+            <li *ngIf="!authRize">
             <a routerLink="/login" class="logo" >Login</a>
+          </li>
+         <li *ngIf="authRize" class="menu-container">
+            <a routerLink="" class="logo" >{{user.name}}</a>
+            <div class="menu">
+              <a (click)="logout()">LogOut</a>
+            </div>
+          </li>
+          <li>
             <a routerLink="/about-us" class="logo" >About Us</a>
             <a routerLink="/contact" class="logo" >Contact Us</a>
+            
+
+            
             <a routerLink="/cart-page" class="logo">Your Cart</a>
+             
+
             <button class="fa-solid fa-bars " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls=" offcanvasRight">
 
             </button>
